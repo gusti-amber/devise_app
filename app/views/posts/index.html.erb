@@ -1,11 +1,13 @@
-<div class ="flex flex-col items-center justify-center">
-  <p class="text-xs text-red-500">Hello,world</p>
-  <p class="text-lg text-red-500">Hello,world</p>
-  <p class="text-4xl text-red-500">Hello,world</p>
+<div class ="flex flex-col items-center justify-center gap-10">
+  
+  <% if user_signed_in? %>
+    <div class="text-lg">現在、ログインしています</div>
+    <div class="text-lg">メールアドレス: <%= current_user.email %></div>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+  <% else %>
+    <div class="text-lg">現在、ログインしていません</div>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
+    <%= link_to "パスワードリセット", new_user_password_path, class: "btn btn-primary" %>
+  <% end %>
 </div>
-
-<button class="btn btn-primary">One</button>
-<button class="btn btn-secondary">Two</button>
-<button class="btn btn-accent btn-outline">Three</button>
-
-<button class="btn">Button</button>

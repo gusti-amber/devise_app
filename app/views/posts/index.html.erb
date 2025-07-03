@@ -2,6 +2,7 @@
   
   <% if user_signed_in? %>
     <div class="text-lg">現在、ログインしています</div>
+    <div class="text-lg">名前: <%= current_user.name %></div>
     <div class="text-lg">メールアドレス: <%= current_user.email %></div>
     <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
   <% else %>

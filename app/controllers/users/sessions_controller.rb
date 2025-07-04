@@ -9,9 +9,16 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    current_or_guest_user
+  end
+
+  # ゲストユーザーとしてログイン
+  def guest_login
+    guest = current_or_guest_user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
+  end
 
   # DELETE /resource/sign_out
   # def destroy

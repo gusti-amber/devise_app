@@ -23,4 +23,9 @@
   </div>
 <% end %>
 
+<!-- ゲストユーザーとしてログイン -->
+<%= form_tag guest_login_path, method: :post do %>
+  <%= submit_tag "ゲストとしてログイン", class: "btn btn-primary" %>
+<% end %>
+
 <%= render "users/shared/links" %>
